@@ -1,5 +1,6 @@
 <?php
 require('controller/controller.php');
+try{
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
@@ -28,4 +29,8 @@ if (isset($_GET['action'])) {
 }
 else {
     listPosts();
+}
+}
+catch(Exception $e){
+  echo 'Erreur :'.$e->getMessage();
 }

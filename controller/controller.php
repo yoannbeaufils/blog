@@ -1,22 +1,28 @@
 <?php
-
-require('model/model.php');
+// Chargement des classes
+require_once('model/postManager.php');
+require_once('model/CommentManager.php');
 function listPosts()
 {
-  $posts = getPosts();
+  $postManager = new postManager();
+  $posts = $postManager->getPosts();
   require('view/frontend/listPostsView.php');
 }
 function post()
 {
-  $post = getpost($_GET['id']);
-  $comments = getComments($_GET['id']);
+  $postManager = new postManager();
+  $CommentManager = new CommentManager();
+
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $CommentManager->getComments($_GET['id']);
   require('view/frontend/postView.php');
 }
 function addComment($postId, $author, $comment)
 {
-    $affectedLines = postComment($postId, $author, $comment);
+    $CommentManager = new CommentManager();
+    $affectedLines = $CommentManager-> postComment($postId, $author, $comment);
     if ($affectedLines === false) {
-        die('Impossible d\'ajouter le commentaire !');
+      throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
         header('Location: index1.php?action=post&id=' . $postId);
