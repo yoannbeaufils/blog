@@ -1,0 +1,149 @@
+body{
+  padding: 0;
+  margin: 0;
+  background-image:url(../image/foret.jpg);
+}
+header{
+  text-align: center;
+  background-image: url(../image/crash.jpg);
+  color:black;
+  font-size: 12px;
+  height:794px;
+  margin-top: -18px;
+}
+header img{
+  float: left;
+  margin-right: 40px;
+  margin-top:-112px;
+}
+h1{
+  padding-top: 24px;
+}
+h2{
+  margin-top: 154px;
+  font-family: georgia;
+  color: #FF8C00;
+  background-color: black;
+  height: 50px;
+  box-shadow: 0 8px 16px 0 #C0C0C0, 0 6px 20px 0 #C0C0C0;
+  border-radius: 25% 10%;
+}
+h3{
+  color:white;
+  display: flex;
+}
+#imagechapitre{
+  margin-left: 200px;
+}
+em{
+  padding-left: 40px;
+}
+#bouton {
+  color: #FF8C00;
+  background-color: black;
+  width:86px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+}
+ a{
+  text-decoration: none;
+  color: #FF8C00;
+  background-color: black;
+  height: 36px;
+  width:86px;
+  box-shadow: 0 8px 16px 0 #FF8C00, 0 6px 20px 0 #FF8C00;
+  border-color: #FF8C00;
+  border-radius: 25% 10%;
+}
+span{
+  color:#FF8C00;
+  font-size: 38px;
+}
+#Bio{
+  color:white;
+  height:144px;
+  margin-top: 587px;
+  background-color: black;
+}
+#Bio p{
+  font-family: georgia;
+  font-weight: bold;
+  font-size: 18px;
+  width:60%;
+  margin-left: 294px;
+  z-index: 5;
+  color: #FF8C00;
+}
+#pageinscription{
+  height:900px;
+  background-image: url(../image/fond.jpg);
+}
+#inscription{
+  text-align: center;
+  padding-top: 250px;
+  padding-right: 657px;
+}
+#inscription input{
+  margin-top: 30px;
+  width:200px;
+  height:40px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+}
+#inscription label{
+  color: #FF8C00;
+  font-size: 20px;
+}
+#connexion{
+  text-align: center;
+  margin-top: -226px;
+  padding-left: 657px;
+}
+#connexion input{
+  margin-top: 30px;
+  width:200px;
+  height:40px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+}
+#connexion label{
+  color: #FF8C00;
+  font-size: 20px;
+}
+#submit{
+  font-size: 15px;
+  color: #FF8C00;
+  background-color: black;
+  height: 36px;
+  width:86px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-top: 170px;
+  border-radius: 25% 10%;
+}
+#commentaires label{
+  color:orange;
+}
+#formulaire{
+  text-align: center;
+}
+p{
+  color:white;
+}
+.news{
+width:57%;
+display: inherit;
+margin-left: 293px;
+margin-top: 70px;
+}
+.footer{
+  display: flex;
+  background-color: black;
+  color:white;
+}
+.footer a{
+  color:white;
+  text-decoration: none;
+}
+.footer p{
+  margin-left: 248px;
+}

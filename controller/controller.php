@@ -28,3 +28,7 @@ function addComment($postId, $author, $comment)
         header('Location: index1.php?action=post&id=' . $postId);
     }
 }
+function inscription()
+{
+  require('view/frontend/inscription.php');
+}
