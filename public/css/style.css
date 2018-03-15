@@ -3,12 +3,34 @@ body{
   margin: 0;
   background-image:url(../image/foret.jpg);
 }
+#tiny{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#bureau{
+  background-image: url(../image/bureau2.jpg);
+}
+#poesie{
+  width: 60%;
+  font-size: 18px;
+  text-align: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-left: 70px;
+  color:white;
+}
+#bienvenue{
+  text-align: center;
+  color:#FF8C00;
+  font-size: 18px;
+}
 header{
   text-align: center;
   background-image: url(../image/crash.jpg);
   color:black;
   font-size: 12px;
-  height:794px;
+  height:926px;
   margin-top: -18px;
 }
 header img{
@@ -20,17 +42,18 @@ h1{
   padding-top: 24px;
 }
 h2{
-  margin-top: 154px;
   font-family: georgia;
   color: #FF8C00;
   background-color: black;
   height: 50px;
   box-shadow: 0 8px 16px 0 #C0C0C0, 0 6px 20px 0 #C0C0C0;
   border-radius: 25% 10%;
+  text-align: center;
 }
 h3{
-  color:white;
+  color:#FF8C00;
   display: flex;
+  background-color: black;
 }
 #imagechapitre{
   margin-left: 200px;
@@ -45,15 +68,15 @@ em{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 25% 10%;
 }
- a{
+a{
   text-decoration: none;
   color: #FF8C00;
   background-color: black;
   height: 36px;
   width:86px;
-  box-shadow: 0 8px 16px 0 #FF8C00, 0 6px 20px 0 #FF8C00;
   border-color: #FF8C00;
   border-radius: 25% 10%;
+  margin-top: 20px;
 }
 span{
   color:#FF8C00;
@@ -61,18 +84,17 @@ span{
 }
 #Bio{
   color:white;
-  height:144px;
+  height:103px;
   margin-top: 587px;
-  background-color: black;
 }
 #Bio p{
   font-family: georgia;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   width:60%;
   margin-left: 294px;
   z-index: 5;
-  color: #FF8C00;
+  color:white;
 }
 #pageinscription{
   height:900px;
@@ -99,6 +121,17 @@ span{
   margin-top: -226px;
   padding-left: 657px;
 }
+#deconnexion{
+  position:relative;
+  background-image:url(../image/totem.jpg);
+  height:900px;
+}
+#deconnexion p{
+  color:white;
+  position:absolute;
+  font-size: 30px;
+  padding:30px 0px 0px 100px;
+}
 #connexion input{
   margin-top: 30px;
   width:200px;
@@ -120,25 +153,24 @@ span{
   margin-top: 170px;
   border-radius: 25% 10%;
 }
-#commentaires label{
-  color:orange;
-}
 #formulaire{
   text-align: center;
 }
 p{
-  color:white;
+  color:black;
+  font-size: 15px;
+  font-family: georgia;
 }
 .news{
-width:57%;
-display: inherit;
-margin-left: 293px;
-margin-top: 70px;
+  width:57%;
+  display: inherit;
+  margin-left: 293px;
+  margin-top: 40px;
 }
 .footer{
   display: flex;
   background-color: black;
-  color:white;
+
 }
 .footer a{
   color:white;
@@ -146,4 +178,5 @@ margin-top: 70px;
 }
 .footer p{
   margin-left: 248px;
+  color:white;
 }
