@@ -21,15 +21,16 @@ function post()
   require('view/frontend/postView.php');
 }
 //fonction d'ajout de commentaires
-function postComment($author, $comment)
+function postComment($author, $comment, $postId)
 {
   $CommentManager = new CommentManager();
-  $affectedLines = $CommentManager-> postComment($author, $comment);
+  $affectedLines = $CommentManager->
+   postComment($author, $comment, $postId);
   if ($affectedLines === false) {
     throw new Exception('Impossible d\'ajouter le commentaire !');
   }
   else {
-    header('Location: index1.php');
+    header('Location: index1.php?action=post&id='.$postId);
   }
 }
 //fonction d'inscription
@@ -97,9 +98,9 @@ function postconnexion()
         require('view/frontend/admin.php');
     }
     else{
-        throw new Exception($_SESSION['pseudo']);
+        header('Location: index1.php');
     }
   }
-  header('Location : index1.php');
+
 }
 ?>

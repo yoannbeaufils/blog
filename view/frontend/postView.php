@@ -13,7 +13,7 @@
     </p>
 </div>
 <h2>Commentaires</h2>
-<form id="formulaire" method="post" action="index1.php?action=postComment">
+<form id="formulaire" method="post" action="index1.php?action=postComment&id=<?= $post['id']?>">
     <div id="commentaires">
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author" />

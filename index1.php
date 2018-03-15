@@ -4,6 +4,7 @@ session_start(); // On démarre la session AVANT toute chose
 <?php
 require('controller/controller.php');
 try{
+
   if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
       listPosts();
@@ -35,12 +36,13 @@ try{
     }
     //action de poster les commenatires
     elseif ($_GET['action'] == 'postComment') {
-      if (isset($_GET['author']) && $_GET['comment']) {
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-          postComment( $_POST['author'], $_POST['comment']);
+      if (isset($_POST['author']) && isset( $_POST['comment']) && isset($_GET['id'])){
+        if (!empty($_POST['author']) && !empty($_POST['comment']))
+         {
+          postComment( $_POST['author'], $_POST['comment'], $_GET['id']);
         }
         else {
-          echo 'Erreur : tous les champs ne sont pas remplis !';
+          throw new Exception ('tous les champs ne sont pas remplis');
         }
       }
     }
@@ -50,6 +52,6 @@ try{
   }
 }
 catch(Exception $e){
-  echo 'Erreur :'.$e->getMessage();
+  echo 'erreur'.$e->getMessage();
 }
 ?>
