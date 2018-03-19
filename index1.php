@@ -4,7 +4,7 @@ session_start(); // On démarre la session AVANT toute chose
 <?php
 require('controller/controller.php');
 try{
-
+//affichage de la liste des chapitres
   if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
       listPosts();
@@ -16,7 +16,18 @@ try{
       else {
         echo 'Erreur : aucun identifiant de billet envoyé';
       }
-
+    }
+    //action de redirection vers frontadmin
+    elseif ($_GET['action'] == 'ecriturechapitre'){
+      require('view/frontend/admin.php');
+    }
+    //action btn1 recuperation des commentaires signalé
+    elseif ($_GET['action'] == 'adminmessage'){
+        getComments();
+    }
+    //action btn2 recuperation des chapitres par l'admin
+    elseif ($_GET['action'] == 'adminchapitre'){
+        getPosts();
     }
     //action d'inscription
     elseif ($_GET['action'] == 'inscription'){
@@ -34,7 +45,17 @@ try{
     elseif ($_GET['action'] == 'deconnexion') {
       deconnexion();
     }
-    //action de poster les commenatires
+    //action de post dans la base de donnees du dernier chapitre
+    elseif ($_GET['action'] == 'postchapter') {
+    if (isset($_POST['title']) && isset($_POST['content']))
+    {
+     postChapter( $_POST['title'], $_POST['content'], $_GET['id']);
+   }
+   else {
+     throw new Exception ('saisie incorrecte');
+   }
+ }
+    //action de poster les commenatires sur postview
     elseif ($_GET['action'] == 'postComment') {
       if (isset($_POST['author']) && isset( $_POST['comment']) && isset($_GET['id'])){
         if (!empty($_POST['author']) && !empty($_POST['comment']))

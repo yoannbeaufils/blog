@@ -11,6 +11,22 @@ body{
 #bureau{
   background-image: url(../image/bureau2.jpg);
 }
+#tableaudebord{
+  height:40px;
+}
+#frontadmin{
+  height:1200px;
+  background-image: url(../image/frontadmin.jpg);
+  text-align:center;
+}
+#btnadmin{
+  color: #FF8C00;
+  background-color: black;
+  width:86px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+  margin-top: 25px;
+}
 #poesie{
   width: 60%;
   font-size: 18px;
@@ -19,6 +35,11 @@ body{
   padding-top: 40px;
   padding-left: 70px;
   color:white;
+}
+#tuto{
+  color:white;
+  font-size: 18px;
+  font-family: georgia;
 }
 #bienvenue{
   text-align: center;
@@ -96,6 +117,12 @@ span{
   z-index: 5;
   color:white;
 }
+.modal{
+  height: 227px;
+  background-color: white;
+  width:70%;
+  margin-left: 180px;
+}
 #pageinscription{
   height:900px;
   background-image: url(../image/fond.jpg);
@@ -153,12 +180,22 @@ span{
   margin-top: 170px;
   border-radius: 25% 10%;
 }
+#signal{
+  font-size: 5px;
+  color: #FF8C00;
+  background-color: black;
+  height: 16px;
+  width:36px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+}
+
 #formulaire{
   text-align: center;
 }
 p{
   color:black;
-  font-size: 15px;
+  font-size: 14px;
   font-family: georgia;
 }
 .news{

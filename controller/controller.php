@@ -3,7 +3,7 @@
 require_once('model/postManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
-//fonction des chapitres
+//fonction d'affichage des chapitres
 function listPosts()
 {
   $postManager = new postManager();
@@ -32,6 +32,18 @@ function postComment($author, $comment, $postId)
   else {
     header('Location: index1.php?action=post&id='.$postId);
   }
+}
+//recuperation des commenatires pour l'admin
+function getComments(){
+  $CommentManager = new CommentManager();
+  $comments = $CommentManager->getReportedComments();
+  require('view/frontend/frontadmin.php');
+}
+//recuperation des chapitres pour l'admin
+function getPosts(){
+  $PostManager = new PostManager();
+  $posts = $PostManager->getPosts();
+  require('view/frontend/frontadmin.php');
 }
 //fonction d'inscription
 function inscription()
@@ -95,12 +107,21 @@ function postconnexion()
         throw new Exception('mauvais mot de passe !');
     }
     if ($_SESSION['pseudo'] == 'jean') {
-        require('view/frontend/admin.php');
+        require('view/frontend/frontadmin.php');
     }
     else{
         header('Location: index1.php');
     }
   }
 
+}
+//fonction d'ajout de commentaires
+function postChapter($id, $title, $content, $image_post, $creation_date_fr)
+{
+  $postManager = new postManager();
+  $lastchapter = $postManager->
+   postChapter($id, $title, $content, $image_post, $creation_date_fr);
+
+    header('Location: index1.php?action=post&id='.$postId);
 }
 ?>

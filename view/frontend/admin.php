@@ -46,8 +46,9 @@
     theme_advanced_styles : "Tableau=textTab;TableauSansCadre=textTabSansCadre;",
   });
 </script>
-<form id="tiny" action="index1.php" method="post">
-  <textarea id="mytextarea" style="width: 70%;" rows="15" name="ecrire"><br /> </textarea>
+<form id="tiny" action="index1.php?action=postchapter" method="post">
+  <title></title>
+  <textarea id="mytextarea"  style="width: 70%;" rows="15" name="ecrire"><br /> </textarea>
   <input id="bouton" name="send" type="submit" value="Envoyer" /></form>
 </head>
 <body id="bureau">
