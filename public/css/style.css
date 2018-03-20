@@ -2,6 +2,7 @@ body{
   padding: 0;
   margin: 0;
   background-image:url(../image/foret.jpg);
+  background-attachment: fixed;
 }
 #tiny{
   display: flex;
@@ -15,8 +16,9 @@ body{
   height:40px;
 }
 #frontadmin{
-  height:1200px;
   background-image: url(../image/frontadmin.jpg);
+  min-height: 1440px;
+  background-attachment: fixed;
   text-align:center;
 }
 #btnadmin{
@@ -49,6 +51,7 @@ body{
 header{
   text-align: center;
   background-image: url(../image/crash.jpg);
+  background-attachment: fixed;
   color:black;
   font-size: 12px;
   height:926px;
@@ -118,7 +121,6 @@ span{
   color:white;
 }
 .modal{
-  height: 227px;
   background-color: white;
   width:70%;
   margin-left: 180px;

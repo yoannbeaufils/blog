@@ -38,25 +38,14 @@ catch(Exception $e)
 }
 //récupération des commentaires
 $reponse = $bdd->query('SELECT author, comment FROM comments ORDER BY ID DESC LIMIT 0, 10');
-
 // Affichage de chaque commentaire (toutes les données sont protégées par htmlspecialchars)
-while ($data = $comments->fetch())
-{
-  echo'<p>. .<strong>' . htmlspecialchars($data['author']) . '</strong>' ."   ".
-  htmlspecialchars($data['comment'])."   ".'  <input id="signal" type="submit" name="envoyer" value="signaler" onclick="incremente();">'. '</p>';
-}
-?>
-<script type="text/javascript">
-var comment = 'comment';
-var compteur = 0;
-function incremente(){
-compteur ++;
-if{
-  compteur = 5;
-}
-delete.comment;
-}
-</script>
+while ($data = $comments->fetch()):?>
+<p><strong><?=htmlspecialchars($data['author']);?></strong>:<?=htmlspecialchars($data['comment']);?></p>
+<form id="formulaire" method="post" action="index1.php?action=post&id=<?= $post['id']?>">
+  <input hidden value="<?=$data['id']?>" name="idcomment"/>
+  <input id="signal" type="submit" name="reportcomment" value="signaler">
+</form>
+<?php endwhile; ?>
 <?php
 $comments->closeCursor();
 ?>

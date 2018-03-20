@@ -29,6 +29,12 @@ try{
     elseif ($_GET['action'] == 'adminchapitre'){
         getPosts();
     }
+    elseif ($_GET['action'] == 'correction'){
+      if (isset($_GET['id']) && isset( $_POST['title']) && isset($_POST['content']) && isset($_POST['image_post']) && isset($_POST['creation_date_fr']))
+      {
+          correction( $_GET['id'], $_POST['title'], $_POST['content'],$_POST['image_post'],$_POST['creation_date_fr']);
+        }
+    }
     //action d'inscription
     elseif ($_GET['action'] == 'inscription'){
         inscription();
@@ -49,7 +55,7 @@ try{
     elseif ($_GET['action'] == 'postchapter') {
     if (isset($_POST['title']) && isset($_POST['content']))
     {
-     postChapter( $_POST['title'], $_POST['content'], $_GET['id']);
+     postChapter( $_POST['title'], $_POST['content']);
    }
    else {
      throw new Exception ('saisie incorrecte');
@@ -57,7 +63,8 @@ try{
  }
     //action de poster les commenatires sur postview
     elseif ($_GET['action'] == 'postComment') {
-      if (isset($_POST['author']) && isset( $_POST['comment']) && isset($_GET['id'])){
+      if (isset($_POST['author']) && isset( $_POST['comment']) && isset($_GET['id']))
+      {
         if (!empty($_POST['author']) && !empty($_POST['comment']))
          {
           postComment( $_POST['author'], $_POST['comment'], $_GET['id']);

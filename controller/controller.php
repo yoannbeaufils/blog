@@ -15,7 +15,7 @@ function post()
 {
   $postManager = new postManager();
   $CommentManager = new CommentManager();
-
+  $reportcomment = $CommentManager->reportcomment($_POST['idcomment']);
   $post = $postManager->getPost($_GET['id']);
   $comments = $CommentManager->getComments($_GET['id']);
   require('view/frontend/postView.php');
@@ -115,7 +115,7 @@ function postconnexion()
   }
 
 }
-//fonction d'ajout de commentaires
+//fonction d'ajout de chapitre après envoyer sur tinymce
 function postChapter($id, $title, $content, $image_post, $creation_date_fr)
 {
   $postManager = new postManager();
@@ -123,5 +123,9 @@ function postChapter($id, $title, $content, $image_post, $creation_date_fr)
    postChapter($id, $title, $content, $image_post, $creation_date_fr);
 
     header('Location: index1.php?action=post&id='.$postId);
+}
+function correction($id, $title, $content, $image_post, $creation_date_fr){
+  $postManager = new postManager();
+  $posts = $postManager->correction();
 }
 ?>
