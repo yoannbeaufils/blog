@@ -10,7 +10,8 @@ try{
       listPosts();
     }
     elseif ($_GET['action'] == 'post') {
-      if (isset($_GET['id']) && $_GET['id'] > 0) {
+      if (isset($_GET['id']) && $_GET['id'] > 0)
+       {
         post();
       }
       else {
@@ -29,11 +30,24 @@ try{
     elseif ($_GET['action'] == 'adminchapitre'){
         getPosts();
     }
-    elseif ($_GET['action'] == 'correction'){
-      if (isset($_GET['id']) && isset( $_POST['title']) && isset($_POST['content']) && isset($_POST['image_post']) && isset($_POST['creation_date_fr']))
-      {
-          correction( $_GET['id'], $_POST['title'], $_POST['content'],$_POST['image_post'],$_POST['creation_date_fr']);
+    // action de modification ou suppression des chapitres par l'admin
+    //renvoi le chapitre a modifier ou supprimer sur textarea
+    elseif ($_GET['action'] == 'correction')
+    {
+          if (isset($_GET['id']) && $_GET['id'])
+          {
+          correction();
         }
+    }
+    //action de suppression des commentaires par l'admin
+    elseif ($_GET['action'] == 'suppComment'){
+      //tester que id existe bien avec isset
+      suppComment($_GET['id']);
+    }
+    //action de suppression des chapitres par l'admin
+    elseif ($_GET['action'] == 'suppPost'){
+      //tester que id existe bien avec isset
+      suppPost($_GET['id']);
     }
     //action d'inscription
     elseif ($_GET['action'] == 'inscription'){

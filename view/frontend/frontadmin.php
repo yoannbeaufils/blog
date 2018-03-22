@@ -18,8 +18,7 @@
           <?=htmlspecialchars($data['reported']);?></br>
           <?= htmlspecialchars($data['author']);?>
           <?=htmlspecialchars($data['comment']);?>
-          <a href=""><input class="btnchapitre" type="button" id="bouton" value="modifier"></a>
-          <a href=""><input class="btnchapitre" type="button" id="bouton" value="supprimer"></a></p>
+          <a href="index1.php?action=suppComment&id=<?= $data['id']?>"><input class="btncomment" type="button" id="bouton" value="supprimer"></a></p>
         <?php endwhile; ?>
       <?php endif; ?>
       <?php if (isset($posts)):?>
@@ -29,8 +28,8 @@
             <?=htmlspecialchars($data['title'])?></br>
             <?=htmlspecialchars($data['content'])?></br>
             <?=htmlspecialchars($data['creation_date_fr'])?></br>
-            <a href="index1.php?action=correction"><input class="btnchapitre" type="button" id="bouton" value="modifier"></a>
-            <a href="index1.php?action=correction"><input class="btnchapitre" type="button" id="bouton" value="supprimer"></a></div></br>
+            <a href="index1.php?action=correction&id=<?=$data['id'];?>"><input class="btnchapitre" type="button" id="bouton" value="modifier"></a>
+            <a href="index1.php?action=suppPost&id=<?= $data['id']?>"><input class="btnchapitre" type="button" id="bouton" value="supprimer"></a></div></br>
           <?php endwhile; ?>
         <?php endif; ?>
       </div>

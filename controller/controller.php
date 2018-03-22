@@ -23,20 +23,38 @@ function post()
 //fonction d'ajout de commentaires
 function postComment($author, $comment, $postId)
 {
-  $CommentManager = new CommentManager();
-  $affectedLines = $CommentManager->
-   postComment($author, $comment, $postId);
-  if ($affectedLines === false) {
-    throw new Exception('Impossible d\'ajouter le commentaire !');
+
+  //si pas connecté pas possible de poster un commentaire
+  if(isset($_SESSION['pseudo'])){
+    $CommentManager = new CommentManager();
+    $affectedLines = $CommentManager->
+     postComment($author, $comment, $postId);
+    if ($affectedLines === false) {
+      throw new Exception('Impossible d\'ajouter le commentaire !');
+    }
+    header('Location: index1.php?action=post&id='.$postId);
   }
   else {
-    header('Location: index1.php?action=post&id='.$postId);
+
+      throw new Exception('Impossible d\'ajouter le commentaire !'.var_dump($_SESSION));
   }
 }
 //recuperation des commenatires pour l'admin
 function getComments(){
   $CommentManager = new CommentManager();
   $comments = $CommentManager->getReportedComments();
+  require('view/frontend/frontadmin.php');
+}
+//suppression des commenatires par l'admin
+function suppComment($id){
+  $CommentManager = new CommentManager();
+  $comments = $CommentManager->suppComment($id);
+  require('view/frontend/frontadmin.php');
+}
+//suppression des chapitres par l'admin
+function suppPost($id){
+  $postManager = new postManager();
+  $posts = $postManager->suppPost($id);
   require('view/frontend/frontadmin.php');
 }
 //recuperation des chapitres pour l'admin
@@ -124,8 +142,13 @@ function postChapter($id, $title, $content, $image_post, $creation_date_fr)
 
     header('Location: index1.php?action=post&id='.$postId);
 }
-function correction($id, $title, $content, $image_post, $creation_date_fr){
+//function de modification ou de suppresion d'un chapitre par l'admin en le renvoyant dans tinymce a l'aide du textarea de tinymce
+function correction($id){
   $postManager = new postManager();
-  $posts = $postManager->correction();
+  $posts = $postManager->correction($id);
+  require('view/frontend/frontadmin.php');
+  {
+  header('Location: index1.php?action=correction&id');
+}
 }
 ?>

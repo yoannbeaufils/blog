@@ -96,7 +96,7 @@ a{
   text-decoration: none;
   color: #FF8C00;
   background-color: black;
-  height: 36px;
+  height: 21px;
   width:86px;
   border-color: #FF8C00;
   border-radius: 25% 10%;
@@ -183,11 +183,11 @@ span{
   border-radius: 25% 10%;
 }
 #signal{
-  font-size: 5px;
+  font-size: 9px;
   color: #FF8C00;
   background-color: black;
-  height: 16px;
-  width:36px;
+  height: 25px;
+  width:59px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 25% 10%;
 }
@@ -199,6 +199,7 @@ p{
   color:black;
   font-size: 14px;
   font-family: georgia;
+  text-align: center;
 }
 .news{
   width:57%;

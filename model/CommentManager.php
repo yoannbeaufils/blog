@@ -18,7 +18,8 @@ class CommentManager extends Manager
     $comments->execute();
     return $comments;
   }
-  public function postComment($author, $comment, $postId)//inserer des commentaires dans la base de données
+  //inserer des commentaires dans la base de données
+  public function postComment($author, $comment, $postId)
   {
     $db =$this-> dbConnect();
     $comments = $db->prepare("INSERT INTO comments (id_posts, author, comment, comment_date) VALUES(:postId, :author, :comment, NOW() )");
@@ -29,8 +30,18 @@ class CommentManager extends Manager
     ));
     return $affectedLines;
   }
+  //suppression par l'admin des commentaires signalé dans la base de données
+  public function suppComment($id)
+  {
+    $db =$this-> dbConnect();
+    $report = $db->prepare("DELETE FROM comments WHERE id= :id");
+    $report->execute(array(
+      'id' =>$id
+    ));
+  }
   //fonction d'update des commentaires signalés
-  function reportcomment($idcomment){
+  public function reportcomment($idcomment)
+  {
     $db =$this-> dbConnect();
     $report = $db->prepare('UPDATE comments  SET reported= reported+1 WHERE id= :id');
     $report->execute(array(

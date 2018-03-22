@@ -48,7 +48,7 @@
 </script>
 <form id="tiny"  method="post">
   <title></title>
-  <textarea id="mytextarea"  style="width: 70%;" rows="15" name="ecrire"><br /> </textarea>
+  <textarea id="mytextarea"  style="width: 70%;" rows="15" name="ecrire"<?php echo $posts;?>><br /> </textarea>
   <a href="index1.php?action=postchapter"><input id="bouton" name="send" type="submit" value="Envoyer" /></a>
   <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
 </form>
