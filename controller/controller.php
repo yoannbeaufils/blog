@@ -23,7 +23,6 @@ function post()
 //fonction d'ajout de commentaires
 function postComment($author, $comment, $postId)
 {
-
   //si pas connecté pas possible de poster un commentaire
   if(isset($_SESSION['pseudo'])){
     $CommentManager = new CommentManager();
@@ -36,7 +35,7 @@ function postComment($author, $comment, $postId)
   }
   else {
 
-      throw new Exception('Impossible d\'ajouter le commentaire !'.var_dump($_SESSION));
+      throw new Exception('');
   }
 }
 //recuperation des commenatires pour l'admin
@@ -56,6 +55,12 @@ function suppPost($id){
   $postManager = new postManager();
   $posts = $postManager->suppPost($id);
   require('view/frontend/frontadmin.php');
+}
+//update des chapitres par l'admin
+function upChapter($title, $content){
+  $postManager = new postManager();
+  $posts = $postManager->upChapter($title, $content);
+  require('view/frontend/admin.php');
 }
 //recuperation des chapitres pour l'admin
 function getPosts(){
@@ -93,7 +98,7 @@ function postinscription()
     }
     else
     {
-      echo 'Les deux mots de passe que vous avez rentrés ne correspondent pas…';
+    throw new Exception ('');
     }
   }
     header('Location: index1.php');
@@ -109,7 +114,7 @@ function postconnexion()
   //si login inconnu message d'erreur
   if (!$resultat)
   {
-      throw new Exception ('mauvais login !');
+      throw new Exception ('');
   }
   else // Sinon
   {
@@ -122,7 +127,7 @@ function postconnexion()
       //si resultat du mot de passe admin redirection vers la page d'admin
       }
     else{
-        throw new Exception('mauvais mot de passe !');
+        throw new Exception('');
     }
     if ($_SESSION['pseudo'] == 'jean') {
         require('view/frontend/frontadmin.php');
@@ -134,21 +139,18 @@ function postconnexion()
 
 }
 //fonction d'ajout de chapitre après envoyer sur tinymce
-function postChapter($id, $title, $content, $image_post, $creation_date_fr)
+function postChapter($title, $content)
 {
   $postManager = new postManager();
-  $lastchapter = $postManager->
-   postChapter($id, $title, $content, $image_post, $creation_date_fr);
-
-    header('Location: index1.php?action=post&id='.$postId);
+  $postManager = $postManager->
+   postChapter($title, $content);
+     require('view/frontend/admin.php');
 }
 //function de modification ou de suppresion d'un chapitre par l'admin en le renvoyant dans tinymce a l'aide du textarea de tinymce
-function correction($id){
+function correction($id)
+{
   $postManager = new postManager();
   $posts = $postManager->correction($id);
-  require('view/frontend/frontadmin.php');
-  {
-  header('Location: index1.php?action=correction&id');
-}
+   require('view/frontend/admin.php');
 }
 ?>

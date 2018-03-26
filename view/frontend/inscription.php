@@ -1,4 +1,4 @@
-
+<link rel="icon" type="image/png" href="../blog/public/image/icon.jpg" />
 <link href="public/css/style.css" rel="stylesheet" />
 <div id="pageinscription">
   <form method="post" id="inscription" action="index1.php?action=postinscription">

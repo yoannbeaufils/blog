@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" type="image/png" href="../blog/public/image/fadmin.png" />
   <meta charset="utf-8" />
   <title>Page admin de Jean Forteroche</title>
   <p id="poesie">
     Etrange est l'équilibre qui s'établit entre la page blanche, la machine à écrire,le corps,l'esprit,secrète osmose,jeu de vases communicants,alchimie.
   </p>
-  <link href="/blog/public/css/style.css" rel="stylesheet" />
-  <script src="/blog/public/js/tinymce/tinymce.min.js"></script>
+  <link href="../blog/public/css/style.css" rel="stylesheet" />
+  <script src="../blog/public/js/tinymce/tinymce.min.js"></script>
   <script type="text/javascript">
   tinyMCE.init({
     selector: "#mytextarea",
@@ -17,8 +18,7 @@
     // id ou class, des textareas
     elements : "texte,texte2",
     // liste des plugins
-    plugins : "autolink,lists,pagebreak,table,save,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template,wordcount,advlist,autosave,visualblocks",
-
+    plugins : "autolink,lists,pagebreak,table,save,insertdatetime,preview,media,image,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template,wordcount,advlist,autosave,visualblocks",
     // les outils à afficher
     theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
     theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
@@ -46,12 +46,21 @@
     theme_advanced_styles : "Tableau=textTab;TableauSansCadre=textTabSansCadre;",
   });
 </script>
-<form id="tiny"  method="post">
-  <title></title>
-  <textarea id="mytextarea"  style="width: 70%;" rows="15" name="ecrire"<?php echo $posts;?>><br /> </textarea>
-  <a href="index1.php?action=postchapter"><input id="bouton" name="send" type="submit" value="Envoyer" /></a>
-  <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
-</form>
+<?php if($_GET['action']=="correction"):?>
+  <form id="tiny" method="post" action="index1.php?action=upChapter=<?= $posts['title'],$posts['content']?>">
+    <input id="titre" type="textarea" name='title' value="<?=$posts['title']?>">
+    <textarea id="mytextarea"  style="width: 70%;" rows="15" name='content' ><?=$posts['content']?> </textarea>
+    <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
+    <input id="bouton2" type="submit" value="Envoyer modification" />
+  </form>
+<?php else:?>
+  <form id="tiny" method="post" action="index1.php?action=postChapter=<?= $posts['title'],$posts['content']?>">
+    <input id="titre" type="textarea" name='title' value="">
+    <textarea id="mytextarea"  style="width: 70%;" rows="15" name='content' ></textarea>
+    <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
+    <input id="bouton2" type="submit" value="Envoyer nouveau chapitre" />
+  </form>
+<?php endif;?>
 </head>
 <body id="bureau">
 </body>

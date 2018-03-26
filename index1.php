@@ -18,7 +18,7 @@ try{
         echo 'Erreur : aucun identifiant de billet envoyé';
       }
     }
-    //action de redirection vers frontadmin
+    //action de redirection vers admin
     elseif ($_GET['action'] == 'ecriturechapitre'){
       require('view/frontend/admin.php');
     }
@@ -34,19 +34,17 @@ try{
     //renvoi le chapitre a modifier ou supprimer sur textarea
     elseif ($_GET['action'] == 'correction')
     {
-          if (isset($_GET['id']) && $_GET['id'])
+          if (isset($_GET['id']))
           {
-          correction();
-        }
+           correction( $_GET['id']);
+         }
     }
     //action de suppression des commentaires par l'admin
     elseif ($_GET['action'] == 'suppComment'){
-      //tester que id existe bien avec isset
       suppComment($_GET['id']);
     }
     //action de suppression des chapitres par l'admin
     elseif ($_GET['action'] == 'suppPost'){
-      //tester que id existe bien avec isset
       suppPost($_GET['id']);
     }
     //action d'inscription
@@ -65,14 +63,18 @@ try{
     elseif ($_GET['action'] == 'deconnexion') {
       deconnexion();
     }
+    //action d'update d'un chapitre par l'admin
+    elseif ($_GET['action'] == 'upChapter') {
+       upChapter( $_POST['title'],$_POST['content']);
+     }
     //action de post dans la base de donnees du dernier chapitre
-    elseif ($_GET['action'] == 'postchapter') {
+    elseif ($_GET['action'] == 'postChapter') {
     if (isset($_POST['title']) && isset($_POST['content']))
     {
      postChapter( $_POST['title'], $_POST['content']);
    }
    else {
-     throw new Exception ('saisie incorrecte');
+     throw new Exception ('');
    }
  }
     //action de poster les commenatires sur postview
@@ -84,7 +86,7 @@ try{
           postComment( $_POST['author'], $_POST['comment'], $_GET['id']);
         }
         else {
-          throw new Exception ('tous les champs ne sont pas remplis');
+          throw new Exception ('');
         }
       }
     }
@@ -94,6 +96,8 @@ try{
   }
 }
 catch(Exception $e){
-  echo 'erreur'.$e->getMessage();
+  echo '<script> alert("erreur vous allez être redirigé vers l accueil");</script>';$e->getMessage();
+  header('refresh:1;url=index1.php');
 }
+
 ?>

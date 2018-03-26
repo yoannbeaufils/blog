@@ -16,7 +16,7 @@
 <form id="formulaire" method="post" action="index1.php?action=postComment&id=<?= $post['id']?>">
   <div id="commentaires">
     <label for="author">Auteur</label><br />
-    <input type="text" id="author" name="author" />
+    <textarea type="text" id="author" name="author" placeholder="<?php echo $_SESSION['pseudo'];?>"></textarea>
   </div>
   <div id="commentaires">
     <label for="comment">Commentaire</label><br />
@@ -30,7 +30,7 @@
 // Connexion à la base de données
 try
 {
-  $bdd = new PDO('mysql:host=localhost;dbname=blog.php;charset=utf8', 'root', '');
+  $bdd = new PDO('mysql:host=localhost;dbname=gretaxao_yoannbp4;charset=utf8', 'gretaxao_yoannb', 'yoannb2017');
 }
 catch(Exception $e)
 {

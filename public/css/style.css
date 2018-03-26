@@ -92,6 +92,16 @@ em{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 25% 10%;
 }
+#bouton2{
+  color: #FF8C00;
+  background-color: black;
+  width:166px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 25% 10%;
+}
+#titre{
+  width:200px;
+}
 a{
   text-decoration: none;
   color: #FF8C00;
@@ -210,7 +220,6 @@ p{
 .footer{
   display: flex;
   background-color: black;
-
 }
 .footer a{
   color:white;
@@ -220,3 +229,173 @@ p{
   margin-left: 248px;
   color:white;
 }
+@media screen and (max-width: 300px){
+  #Bio p{
+    color:white;
+  }
+header img{
+  display:none;
+}
+header{
+  text-align: center;
+  background-image: none;
+  background-attachment: fixed;
+  color:black;
+  font-size: 12px;
+  height:926px;
+  margin-top: -18px;
+}
+.news{
+  width:57%;
+  display: inherit;
+  margin-left: 80px;
+}
+.footer p{
+  color:white;
+  margin-left: 8px;
+}
+}
+@media screen and (min-width: 301px) and (max-width: 639px){
+  header{
+    text-align: center;
+    background-image: none;
+    background-attachment: fixed;
+    color:black;
+    font-size: 12px;
+    height:465px;
+    margin-top: -18px;
+  }
+  #imagechapitre{
+    margin-left: 28px;
+  }
+  #Bio p{
+    font-family: georgia;
+    font-weight: bold;
+    font-size: 13px;
+    color:black;
+    margin-left: 81px;
+  }
+  #Bio{
+    color:white;
+    height:103px;
+    margin-top: 7px;
+  }
+  .news{
+    width:57%;
+    display: inherit;
+    margin-left: 80px;
+  }
+  #connexion{
+    text-align: center;
+    margin-top: -275px;
+    padding-left: 200px;
+  }
+  #inscription{
+    text-align: center;
+    padding-top: 250px;
+    padding-right: 200px;
+  }
+  #inscription label{
+    color: #FF8C00;
+    font-size: 9px;
+  }
+  #connexion label{
+    color: #FF8C00;
+    font-size: 9px;
+  }
+  #connexion input{
+    margin-top: 10px;
+    width:200px;
+    height:26px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 25% 10%;
+  }
+  #inscription input{
+    margin-top: 10px;
+    width:200px;
+    height:26px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 25% 10%;
+  }
+  header img{
+    display:none;
+  }
+  .modal{
+    background-color: white;
+    width:70%;
+    margin-left: 80px;
+    font-size: 12px;
+  }
+  #mceu_14{
+    width:91%;
+  }
+  .footer{
+    display: inline-table;
+    background-color: black;
+    margin-left: -145px;
+  }
+  .footer p{
+    color:white;
+    margin-right: 30px;
+    text-align: center;
+  }
+  .footer a{
+    color:white;
+    text-decoration: none;
+    margin-right: 30px;
+  }
+  h3{
+    font-size: 9px;
+  }
+  em{
+    font-size: 9px;
+  }
+}
+
+
+@media screen and (min-width: 640px) and (max-width: 1023px){
+  #Bio p{
+    font-family: georgia;
+    font-weight: bold;
+    font-size: 13px;
+    width:65%;
+    margin-left: 166px;
+    z-index: 5;
+    color:white;
+  }
+  header img{
+    float: left;
+    margin-right: 40px;
+    margin-top:-4px;
+    width:18%;
+  }
+  .news{
+    width:57%;
+    display: inherit;
+    margin-left: 192px;
+  }
+  #connexion{
+    text-align: center;
+    margin-top: -275px;
+    padding-left: 200px;
+  }
+  #inscription{
+    text-align: center;
+    padding-top: 250px;
+    padding-right: 200px;
+  }
+  #bienvenue img{
+    width: 4%;
+  }
+  h2{
+    height: 24px;
+  }
+  em{
+    padding-left: 6px;
+  }
+}
+
+
+@media screen and (min-width: 1024px){
+
+  }

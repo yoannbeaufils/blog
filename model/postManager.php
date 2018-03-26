@@ -27,9 +27,8 @@ class postManager extends Manager
     $lastchapter = $db->prepare('INSERT INTO posts (title, content) VALUES( :title, :content,)');
     $lastchapter->execute(array(
       'title' => $title,
-      'content' => $content,
+      'content' => $content
     ));
-    return $lastchapter;
   }
   //recuperation des chapitres par l'admin dans son tableau de bord
   public function getAdminPosts(){
@@ -39,11 +38,23 @@ class postManager extends Manager
     return $posts;
   }
   //envoi des chapitres a modifier ou supprimer dans tinymce
-  public function correction(){
+  public function correction($id){
     $db =$this-> dbConnect();
-    $posts = $db->prepare('SELECT title, content, DATE_FORMAT(creation_date, "%d/%m/%Y à %Hh%imin%ss") AS comment_date FROM posts');
-    $posts->execute();
-    return $posts;
+    $posts = $db->prepare('SELECT title, content FROM posts WHERE id = :id');
+    $posts->execute(array(
+      'id' =>$id
+    ));
+    return $posts->fetch();
+  }
+  //fonction d'update des chapitres par l'admin
+  public function upChapter($title, $content)
+  {
+    $db =$this-> dbConnect();
+    $posts = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id= :id');
+    $posts->execute(array(
+      'title' => $title,
+      'content' => $content
+    ));
   }
   //suppression par l'admin des chapitres dans la base de données
   public function suppPost($id)
