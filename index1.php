@@ -65,8 +65,11 @@ try{
     }
     //action d'update d'un chapitre par l'admin
     elseif ($_GET['action'] == 'upChapter') {
-       upChapter( $_POST['title'],$_POST['content']);
+      if (isset($_GET['id']) && isset($_POST['title']) && isset($_POST['content']))
+      {
+       upChapter( $_GET['id'],$_POST['title'],$_POST['content']);
      }
+   }
     //action de post dans la base de donnees du dernier chapitre
     elseif ($_GET['action'] == 'postChapter') {
     if (isset($_POST['title']) && isset($_POST['content']))

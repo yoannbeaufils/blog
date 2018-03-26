@@ -2,7 +2,7 @@
 <?php $title = "Mon blog"; ?>
 <?php ob_start();?><!--enclenche la temporisation de sortie-->
 <p id="bienvenue">
- <img src="public/image/favicon.jpg" />
+ <img src="public/image/favicon.jpg" alt="iconmembre" />
 <?php if(isset($_SESSION['pseudo'])){
   echo ' Bienvenue '. $_SESSION['pseudo'];} ?>
 </p>
@@ -17,7 +17,7 @@ while ($data = $posts->fetch())
       <?=  htmlspecialchars($data['title']); ?><!--recuperation du titre-->
       <em>le <?= $data['creation_date_fr']; ?></em><!--recuperation de la date de crea-->
     </h3>
-    <img id="imagechapitre" alt="<?=  htmlspecialchars($data['image_post']); ?>" src="public/image/<?=  htmlspecialchars($data['image_post']); ?>"><!--recuperation de l'image-->
+    <img class="imagechapitre" alt="<?=  htmlspecialchars($data['image_post']); ?>" src="public/image/<?=  htmlspecialchars($data['image_post']); ?>"><!--recuperation de l'image-->
     <p>
       <?=
       nl2br(htmlspecialchars($data['content']));

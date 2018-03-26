@@ -47,17 +47,17 @@
   });
 </script>
 <?php if($_GET['action']=="correction"):?>
-  <form id="tiny" method="post" action="index1.php?action=upChapter=<?= $posts['title'],$posts['content']?>">
+  <form id="tiny" method="post" action="index1.php?action=upChapter&id=<?=$_GET['id']?>">
     <input id="titre" type="textarea" name='title' value="<?=$posts['title']?>">
     <textarea id="mytextarea"  style="width: 70%;" rows="15" name='content' ><?=$posts['content']?> </textarea>
-    <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
+    <a href="index1.php"><input class="bouton" type="button" value="Accueil"/></a>
     <input id="bouton2" type="submit" value="Envoyer modification" />
   </form>
 <?php else:?>
-  <form id="tiny" method="post" action="index1.php?action=postChapter=<?= $posts['title'],$posts['content']?>">
+  <form id="tiny" method="post" action="index1.php?action=postChapter&id=<?=$post['id'],$post['title'],$post['content']?>">
     <input id="titre" type="textarea" name='title' value="">
     <textarea id="mytextarea"  style="width: 70%;" rows="15" name='content' ></textarea>
-    <a href="index1.php"><input id="bouton" type="button" value="Accueil"/></a>
+    <a href="index1.php"><input class="bouton" type="button" value="Accueil"/></a>
     <input id="bouton2" type="submit" value="Envoyer nouveau chapitre" />
   </form>
 <?php endif;?>

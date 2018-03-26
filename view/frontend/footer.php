@@ -1,6 +1,6 @@
 <footer class="footer">
   <p>
-    &copy
+    &copy;
     2018 Jean Forteroche-Tous droits réservés
   </p>
   <p>

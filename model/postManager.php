@@ -24,11 +24,12 @@ class postManager extends Manager
   public function postChapter($title, $content)
   {
     $db =$this-> dbConnect();
-    $lastchapter = $db->prepare('INSERT INTO posts (title, content) VALUES( :title, :content,)');
+    $lastchapter = $db->prepare('INSERT INTO posts (title, content) VALUES(:title, :content)');
     $lastchapter->execute(array(
       'title' => $title,
       'content' => $content
     ));
+    return $lastchapter;
   }
   //recuperation des chapitres par l'admin dans son tableau de bord
   public function getAdminPosts(){
@@ -47,11 +48,12 @@ class postManager extends Manager
     return $posts->fetch();
   }
   //fonction d'update des chapitres par l'admin
-  public function upChapter($title, $content)
+  public function upChapter($id, $title, $content)
   {
     $db =$this-> dbConnect();
     $posts = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id= :id');
     $posts->execute(array(
+      'id' => $id,
       'title' => $title,
       'content' => $content
     ));

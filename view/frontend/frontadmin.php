@@ -29,8 +29,8 @@
             <?=htmlspecialchars($data['title'])?></br>
             <?=htmlspecialchars($data['content'])?></br>
             <?=htmlspecialchars($data['creation_date_fr'])?></br>
-            <a href="index1.php?action=correction&id=<?=$data['id']?>"><input class="btnchapitre" type="button" id="bouton" value="modifier"></a>
-            <a href="index1.php?action=suppPost&id=<?= $data['id']?>"><input class="btnchapitre" type="button" id="bouton" value="supprimer"></a></div></br>
+            <a href="index1.php?action=correction&id=<?=$data['id']?>"><input  type="button" class="bouton" value="modifier"></a>
+            <a href="index1.php?action=suppPost&id=<?= $data['id']?>"><input  type="button" class="bouton" value="supprimer"></a></div></br>
           <?php endwhile; ?>
         <?php endif; ?>
       </div>

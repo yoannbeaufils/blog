@@ -57,9 +57,9 @@ function suppPost($id){
   require('view/frontend/frontadmin.php');
 }
 //update des chapitres par l'admin
-function upChapter($title, $content){
+function upChapter($id,$title, $content){
   $postManager = new postManager();
-  $posts = $postManager->upChapter($title, $content);
+  $posts = $postManager->upChapter($id, $title, $content);
   require('view/frontend/admin.php');
 }
 //recuperation des chapitres pour l'admin

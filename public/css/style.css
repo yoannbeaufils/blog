@@ -79,13 +79,13 @@ h3{
   display: flex;
   background-color: black;
 }
-#imagechapitre{
+.imagechapitre{
   margin-left: 200px;
 }
 em{
   padding-left: 40px;
 }
-#bouton {
+.bouton {
   color: #FF8C00;
   background-color: black;
   width:86px;
