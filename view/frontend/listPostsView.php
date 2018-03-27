@@ -20,8 +20,8 @@ while ($data = $posts->fetch())
     <img class="imagechapitre" alt="<?=  htmlspecialchars($data['image_post']); ?>" src="public/image/<?=  htmlspecialchars($data['image_post']); ?>"><!--recuperation de l'image-->
     <p>
       <?=
-      nl2br(htmlspecialchars($data['content']));
-      ?><!--recuperation du contenu-->
+    substr($data['content'],0,300);
+      ?>...<!--recuperation du contenu-->
       <br /><!--action de redirection vers le chapitre entier-->
       <em><a href="index1.php?action=post&id=<?= $data['id'] ?>">Lire ce chapitre</a></em>
     </p>

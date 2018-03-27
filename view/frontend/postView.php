@@ -8,22 +8,22 @@
     <em>le <?=  $post['creation_date_fr']; ?></em>
   </h3>
   <p>
-    <?= nl2br(htmlspecialchars($post['content']));
+    <?=($post['content']);
     ?>
   </p>
 </div>
 <h2>Commentaires</h2>
 <form id="formulaire" method="post" action="index1.php?action=postComment&id=<?= $post['id']?>">
   <div id="commentaires">
-    <label for="author">Auteur</label><br />
-    <textarea type="text" id="author" name="author" placeholder="<?php echo $_SESSION['pseudo'];?>"></textarea>
+    <br />
+    <input hidden type="text" id="author" name="author" value="<?php echo $_SESSION['pseudo'];?>">
   </div>
   <div id="commentaires">
     <label for="comment">Commentaire</label><br />
     <textarea id="comment" name="comment"></textarea>
   </div>
   <div>
-    <input id="bouton" type="submit" value="Envoyer"/>
+    <input class="bouton" type="submit" value="Envoyer"/>
   </div>
 </form>
 <?php
@@ -41,7 +41,7 @@ $reponse = $bdd->query('SELECT author, comment FROM comments ORDER BY ID DESC LI
 // Affichage de chaque commentaire (toutes les données sont protégées par htmlspecialchars)
 while ($data = $comments->fetch()):?>
 <p><strong><?=htmlspecialchars($data['author']);?></strong>:<?=htmlspecialchars($data['comment']);?></p>
-<form id="formulaire" method="post" action="index1.php?action=post&id=<?= $post['id']?>">
+<form id="formulaire" method="post" action="index1.php?action=signal&id=<?= $data['id']?>">
   <input hidden value="<?=$data['id']?>" name="idcomment"/>
   <input id="signal" type="submit" name="reportcomment" value="signaler">
 </form>

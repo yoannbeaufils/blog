@@ -19,7 +19,7 @@
           <?=htmlspecialchars($data['reported']);?></br>
           <?= htmlspecialchars($data['author']);?>
           <?=htmlspecialchars($data['comment']);?>
-          <a href="index1.php?action=suppComment&id=<?= $data['id']?>"><input class="btncomment" type="button" id="bouton" value="supprimer"></a></p>
+          <a href="index1.php?action=suppComment&id=<?= $data['id']?>"><input type="button" class="bouton" value="supprimer"></a></p>
         <?php endwhile; ?>
       <?php endif; ?>
       <?php if (isset($posts)):?>
@@ -27,7 +27,7 @@
           <div class="modal">
             <?=htmlspecialchars($data['id'])?>
             <?=htmlspecialchars($data['title'])?></br>
-            <?=htmlspecialchars($data['content'])?></br>
+            <?=($data['content'])?></br>
             <?=htmlspecialchars($data['creation_date_fr'])?></br>
             <a href="index1.php?action=correction&id=<?=$data['id']?>"><input  type="button" class="bouton" value="modifier"></a>
             <a href="index1.php?action=suppPost&id=<?= $data['id']?>"><input  type="button" class="bouton" value="supprimer"></a></div></br>

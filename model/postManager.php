@@ -24,7 +24,7 @@ class postManager extends Manager
   public function postChapter($title, $content)
   {
     $db =$this-> dbConnect();
-    $lastchapter = $db->prepare('INSERT INTO posts (title, content) VALUES(:title, :content)');
+    $lastchapter = $db->prepare('INSERT INTO posts (title, content,creation_date ) VALUES(:title, :content, NOW() )');
     $lastchapter->execute(array(
       'title' => $title,
       'content' => $content

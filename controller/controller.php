@@ -15,7 +15,7 @@ function post()
 {
   $postManager = new postManager();
   $CommentManager = new CommentManager();
-  $reportcomment = $CommentManager->reportcomment($_POST['idcomment']);
+  //$reportcomment = $CommentManager->reportcomment($_POST['idcomment']);
   $post = $postManager->getPost($_GET['id']);
   $comments = $CommentManager->getComments($_GET['id']);
   require('view/frontend/postView.php');
@@ -29,7 +29,7 @@ function postComment($author, $comment, $postId)
     $affectedLines = $CommentManager->
      postComment($author, $comment, $postId);
     if ($affectedLines === false) {
-      throw new Exception('Impossible d\'ajouter le commentaire !');
+      throw new Exception('');
     }
     header('Location: index1.php?action=post&id='.$postId);
   }
@@ -106,6 +106,7 @@ function postinscription()
 //fonction de connexion
 function postconnexion()
 {
+  //trim — Supprime les espaces (ou d'autres caractères) en début et fin de chaîne
   $pseudo = trim (htmlspecialchars($_POST['pseudo']));
   $passe = trim (htmlspecialchars($_POST['passe']));
   //creer un nouveau userconnexion
@@ -123,22 +124,21 @@ function postconnexion()
       if($ispasswordvalide){
         $_SESSION['passe'] = $resultat['passe'];
         $_SESSION['pseudo'] = $pseudo;
-        echo 'Vous êtes connecté !';
+        if ($_SESSION['pseudo'] == 'jean') {
+            require('view/frontend/frontadmin.php');
+            echo 'vous etes connecté';
+        }
+        else{
+            header('Location: index1.php');
+        }
       //si resultat du mot de passe admin redirection vers la page d'admin
       }
     else{
         throw new Exception('');
     }
-    if ($_SESSION['pseudo'] == 'jean') {
-        require('view/frontend/frontadmin.php');
-    }
-    else{
-        header('Location: index1.php');
-    }
   }
-
 }
-//fonction d'ajout de chapitre après envoyer sur tinymce
+//fonction d'ajout de chapitre après ecriture sur tinymce
 function postChapter($title, $content)
 {
   $postManager = new postManager();
@@ -152,5 +152,11 @@ function correction($id)
   $postManager = new postManager();
   $posts = $postManager->correction($id);
    require('view/frontend/admin.php');
+}
+function signalComment($idcomment){
+$CommentManager = new CommentManager();
+$comments = $CommentManager->reportcomment($idcomment);
+require('view/frontend/frontadmin.php');
+
 }
 ?>

@@ -11,6 +11,7 @@ class CommentManager extends Manager
     $comments->execute(array($postId));
     return $comments;
   }
+
   //recuperation des commenatires signalés par l'admin
   public function getReportedComments(){
     $db =$this-> dbConnect();

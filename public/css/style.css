@@ -397,5 +397,20 @@ header{
 
 
 @media screen and (min-width: 1024px){
-
+  header{
+    text-align: center;
+    background-image: url(../image/crash.jpg);
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    width:100%;
+    color:black;
+    font-size: 12px;
+    height:926px;
+    margin-top: -18px;
+  }
+  header img{
+    float: left;
+    margin-right: 40px;
+    margin-top:-112px;
+  }
   }

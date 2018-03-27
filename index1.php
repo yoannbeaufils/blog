@@ -43,6 +43,13 @@ try{
     elseif ($_GET['action'] == 'suppComment'){
       suppComment($_GET['id']);
     }
+    elseif ($_GET['action'] == 'signal'){
+      $idcomment=$_GET['id'];
+      signalComment($idcomment);
+    }
+
+
+
     //action de suppression des chapitres par l'admin
     elseif ($_GET['action'] == 'suppPost'){
       suppPost($_GET['id']);
@@ -89,7 +96,7 @@ try{
           postComment( $_POST['author'], $_POST['comment'], $_GET['id']);
         }
         else {
-          throw new Exception ('');
+          throw new Exception ('champs pas remplis');
         }
       }
     }
@@ -99,7 +106,7 @@ try{
   }
 }
 catch(Exception $e){
-  echo '<script> alert("erreur vous allez être redirigé vers l accueil");</script>';$e->getMessage();
+  echo $e->getMessage();
   header('refresh:1;url=index1.php');
 }
 
