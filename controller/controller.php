@@ -156,7 +156,7 @@ function correction($id)
 function signalComment($idcomment){
 $CommentManager = new CommentManager();
 $comments = $CommentManager->reportcomment($idcomment);
-require('view/frontend/frontadmin.php');
-
+header('Location:index1.php');
+require('view/frontend/postView.php');
 }
 ?>
