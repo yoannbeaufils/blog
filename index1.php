@@ -15,7 +15,7 @@ try{
         post();
       }
       else {
-        echo 'Erreur : aucun identifiant de billet envoyé';
+        throw new Exception ('aucun identifiant de billet envoyé');
       }
     }
     //action de redirection vers admin
@@ -47,9 +47,10 @@ try{
       $idcomment=$_GET['id'];
       signalComment($idcomment);
     }
-
-
-
+   //action de retour d'admin vers frontadmin
+   elseif ($_GET['action'] == 'accueilfront'){
+     require('view/frontend/frontadmin.php');
+   }
     //action de suppression des chapitres par l'admin
     elseif ($_GET['action'] == 'suppPost'){
       suppPost($_GET['id']);

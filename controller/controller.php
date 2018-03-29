@@ -1,22 +1,25 @@
 <?php
 // Chargement des classes
-require_once('model/postManager.php');
+require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
 //fonction d'affichage des chapitres
 function listPosts()
 {
-  $postManager = new postManager();
+  $postManager = new PostManager();
   $posts = $postManager->getPosts();
   require('view/frontend/listPostsView.php');
 }
 //fonction d'un chapitre
 function post()
 {
-  $postManager = new postManager();
+  $postManager = new PostManager();
   $CommentManager = new CommentManager();
   //$reportcomment = $CommentManager->reportcomment($_POST['idcomment']);
   $post = $postManager->getPost($_GET['id']);
+  if($post == false){
+    throw new Exception('chapitre inconnu');
+  }
   $comments = $CommentManager->getComments($_GET['id']);
   require('view/frontend/postView.php');
 }
@@ -50,15 +53,17 @@ function suppComment($id){
   $comments = $CommentManager->suppComment($id);
   require('view/frontend/frontadmin.php');
 }
-//suppression des chapitres par l'admin
+//suppression des chapitres par l'admin ainsi que des commentaires associés
 function suppPost($id){
-  $postManager = new postManager();
+  $CommentManager = new CommentManager();
+  $comments = $CommentManager->suppComments($id);
+  $postManager = new PostManager();
   $posts = $postManager->suppPost($id);
   require('view/frontend/frontadmin.php');
 }
 //update des chapitres par l'admin
 function upChapter($id,$title, $content){
-  $postManager = new postManager();
+  $postManager = new PostManager();
   $posts = $postManager->upChapter($id, $title, $content);
   require('view/frontend/admin.php');
 }
@@ -75,7 +80,7 @@ function inscription()
 }
 function deconnexion()
 {
-  require('controller/deconnexion.php');
+  require('view/frontend/deconnexion.php');
 }
 //fonction d'inscription d'un utilisateur
 function postinscription()
@@ -98,7 +103,7 @@ function postinscription()
     }
     else
     {
-    throw new Exception ('');
+    throw new Exception ('erreur de saisie');
     }
   }
     header('Location: index1.php');
@@ -115,7 +120,7 @@ function postconnexion()
   //si login inconnu message d'erreur
   if (!$resultat)
   {
-      throw new Exception ('');
+      throw new Exception ('erreur de saisie');
   }
   else // Sinon
   {
@@ -141,7 +146,7 @@ function postconnexion()
 //fonction d'ajout de chapitre après ecriture sur tinymce
 function postChapter($title, $content)
 {
-  $postManager = new postManager();
+  $postManager = new PostManager();
   $postManager = $postManager->
    postChapter($title, $content);
      require('view/frontend/admin.php');
@@ -149,7 +154,7 @@ function postChapter($title, $content)
 //function de modification ou de suppresion d'un chapitre par l'admin en le renvoyant dans tinymce a l'aide du textarea de tinymce
 function correction($id)
 {
-  $postManager = new postManager();
+  $postManager = new PostManager();
   $posts = $postManager->correction($id);
    require('view/frontend/admin.php');
 }

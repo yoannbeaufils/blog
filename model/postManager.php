@@ -2,7 +2,7 @@
 //manager=connexion
 require_once("Manager.php");
 
-class postManager extends Manager
+class PostManager extends Manager
 {
   //récupération des champs pour posts page index1 chapitres, liste des chapitres
   public function getPosts()

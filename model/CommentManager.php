@@ -40,6 +40,15 @@ class CommentManager extends Manager
       'id' =>$id
     ));
   }
+  //suppression par l'admin des commentaires signalé dans la base de données
+  public function suppComments($idpost)
+  {
+    $db =$this-> dbConnect();
+    $report = $db->prepare("DELETE FROM comments WHERE id_posts= :id");
+    $report->execute(array(
+      'id' =>$idpost
+    ));
+  }
   //fonction d'update des commentaires signalés
   public function reportcomment($idcomment)
   {

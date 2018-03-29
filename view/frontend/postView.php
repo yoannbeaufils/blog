@@ -27,17 +27,6 @@
   </div>
 </form>
 <?php
-// Connexion à la base de données
-try
-{
-  $bdd = new PDO('mysql:host=localhost;dbname=gretaxao_yoannbp4;charset=utf8', 'gretaxao_yoannb', 'yoannb2017');
-}
-catch(Exception $e)
-{
-  die('Erreur : '.$e->getMessage());
-}
-//récupération des commentaires
-$reponse = $bdd->query('SELECT author, comment FROM comments ORDER BY ID DESC LIMIT 0, 10');
 // Affichage de chaque commentaire (toutes les données sont protégées par htmlspecialchars)
 while ($data = $comments->fetch()):?>
 <p><strong><?=htmlspecialchars($data['author']);?></strong>:<?=htmlspecialchars($data['comment']);?></p>
